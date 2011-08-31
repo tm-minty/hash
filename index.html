@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/hashlistener.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            window.hl = new HashListener();
+
+            hl.addMethod('test1', function(args){
+                alert('test1');
+            });
+
+            hl.test2 = function(args){
+                alert('test2');
+            }
+            
+            hl.test3 = function(args){
+                alert('test3: ' + args);
+            }
+
+            $(window).bind('hashchange', function(){ hl.hashListener(); } );
+        });
+    </script>
+</head>
+<body>
+    <a href="#!test1">Test 1</a><br/>
+	<a href="#!test2">Test 2</a><br/>
+	<a href="#!test3/function/with/arguments">Test 3</a>
+</body>
+</html>
